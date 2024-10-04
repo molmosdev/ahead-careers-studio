@@ -1,15 +1,15 @@
-import { defineField, defineType } from 'sanity'
+import {defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'experience',
-  title: 'Experiencia',
-  type: 'object',
+  title: 'Experiencias',
+  type: 'document',
   fields: [
     defineField({
       name: 'content',
       title: 'Contenido',
       type: 'array',
-      of: [{ type: 'block' }],
+      of: [{type: 'block'}],
       validation: (rule) => rule.required(),
     }),
     defineField({

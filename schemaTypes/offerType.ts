@@ -2,14 +2,34 @@ import {defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'offer',
-  title: 'Oferta',
-  type: 'object',
+  title: 'Ofertas',
+  type: 'document',
   fields: [
     defineField({
       name: 'offerId',
       title: 'ID de la Oferta',
-      type: 'string',
-      validation: (rule) => rule.required(),
+      type: 'number',
+      validation: (rule) =>
+        rule
+          .required()
+          .integer()
+          .min(1)
+          .max(99999)
+          .custom(async (value, context) => {
+            const {document, getClient} = context
+            const client = getClient({apiVersion: '2021-06-07'})
+            const existingOffers = await client.fetch(
+              `*[_type == "offer" && offerId == $offerId && _id != $id]`,
+              {
+                offerId: value,
+                id: document?._id,
+              },
+            )
+            if (existingOffers.length > 0) {
+              return 'El ID de la oferta debe ser único'
+            }
+            return true
+          }),
     }),
     defineField({
       name: 'jobTitle',
@@ -32,8 +52,8 @@ export default defineType({
     defineField({
       name: 'salary',
       title: 'Salario',
-      type: 'number',
-      validation: (rule) => rule.required().min(0),
+      type: 'string',
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'contractType',
