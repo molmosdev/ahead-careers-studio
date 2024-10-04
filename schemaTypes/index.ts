@@ -1,3 +1,4 @@
-import offerType from './offerType'
+import offersDocument from './offers/offersDocument'
+import experiencesDocument from './experiences/experiencesDocument'
 
-export const schemaTypes = [offerType]
+export const schemaTypes = [offersDocument, experiencesDocument]
