@@ -48,12 +48,19 @@ export const structure: StructureResolver = (S, context) =>
       }),
     ])
 
+export const adminOnlyVisionTool = (user: {role: string}) => {
+  if (user.role === 'administrator') {
+    return visionTool()
+  }
+  return null
+}
+
 export default defineConfig({
   name: 'default',
   title: 'Ahead Careers',
   projectId: '54dcb3zh',
   dataset: 'production',
-  plugins: [structureTool({structure}), visionTool()],
+  plugins: [structureTool({structure}), adminOnlyVisionTool],
   schema: {
     types: schemaTypes,
   },
