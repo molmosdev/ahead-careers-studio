@@ -68,6 +68,5 @@ export default defineConfig({
   schema: {
     types: schemaTypes,
   },
-  head: () => [{rel: 'icon', href: '/ruta/a/tu/favicon.ico', type: 'image/x-icon'}],
   icon: Logo,
 })

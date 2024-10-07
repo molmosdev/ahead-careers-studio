@@ -35,33 +35,40 @@ Follow these steps to set up the project locally:
 ### Installation
 
 1. **Clone the Repository**:
-    ```sh
-    git clone https://github.com/aheadcareers/aheadcareers-studio.git
-    cd aheadcareers-studio
-    ```
+
+   ```sh
+   git clone https://github.com/aheadcareers/aheadcareers-studio.git
+   cd aheadcareers-studio
+   ```
 
 2. **Install Dependencies**:
-    Using npm:
-    ```sh
-    npm install
-    ```
-    Or using yarn:
-    ```sh
-    yarn install
-    ```
+   Using npm:
+
+   ```sh
+   npm install
+   ```
+
+   Or using yarn:
+
+   ```sh
+   yarn install
+   ```
 
 3. **Start the Development Server**:
-    Using npm:
-    ```sh
-    npm start
-    ```
-    Or using yarn:
-    ```sh
-    yarn start
-    ```
+   Using npm:
+
+   ```sh
+   npm start
+   ```
+
+   Or using yarn:
+
+   ```sh
+   yarn start
+   ```
 
 4. **Open in Browser**:
-    Open your browser and navigate to `http://localhost:3000` to see the application running.
+   Open your browser and navigate to `http://localhost:3000` to see the application running.
 
 ## Resources
 
