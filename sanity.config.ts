@@ -21,6 +21,21 @@ export const structure: StructureResolver = (S, context) =>
             .documentId('businessDescription'),
         ),
       S.listItem()
+        .id('methodology')
+        .schemaType('methodology')
+        .title('Metodología')
+        .child(S.editor().id('methodology').schemaType('methodology').documentId('methodology')),
+      S.listItem()
+        .id('offers')
+        .schemaType('offers')
+        .title('Ofertas')
+        .child(S.editor().id('offers').schemaType('offers').documentId('offers')),
+      S.listItem()
+        .id('experiences')
+        .schemaType('experiences')
+        .title('Experiencias')
+        .child(S.editor().id('experiences').schemaType('experiences').documentId('experiences')),
+      S.listItem()
         .id('values')
         .schemaType('values')
         .title('Valores')
