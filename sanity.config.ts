@@ -20,6 +20,11 @@ export const structure: StructureResolver = (S, context) =>
             .documentId('businessDescription'),
         ),
       S.listItem()
+        .id('methodology')
+        .schemaType('methodology')
+        .title('Metodología')
+        .child(S.editor().id('methodology').schemaType('methodology').documentId('methodology')),
+      S.listItem()
         .id('offers')
         .schemaType('offers')
         .title('Ofertas')
@@ -36,7 +41,10 @@ export const structure: StructureResolver = (S, context) =>
         .child(S.editor().id('values').schemaType('values').documentId('values')),
       ...S.documentTypeListItems().filter((listItem) => {
         const id = listItem.getId()
-        return id && !['businessDescription', 'offers', 'experiences', 'values'].includes(id)
+        return (
+          id &&
+          !['businessDescription', 'methodology', 'offers', 'experiences', 'values'].includes(id)
+        )
       }),
     ])
 

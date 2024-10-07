@@ -2,11 +2,13 @@ import businessDescriptionType from './businessDescription/businessDescriptionTy
 import businessRequestType from './businessRequest/businessRequestType'
 import candidateRequestType from './candidateRequest/candidateRequestType'
 import experiencesType from './experiences/experiencesType'
+import methodologyType from './methodology/methodologyType'
 import offersType from './offers/offersType'
 import valuesType from './values/valuesType'
 
 export const schemaTypes = [
   businessDescriptionType,
+  methodologyType,
   offersType,
   experiencesType,
   valuesType,

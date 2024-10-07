@@ -1,5 +1,4 @@
 import {defineField, defineType} from 'sanity'
-import methodologyStepType from './methodologyStepType'
 
 export default defineType({
   name: 'businessDescription',
@@ -32,14 +31,6 @@ export default defineType({
       type: 'array',
       of: [{type: 'block'}],
       validation: (rule) => rule.required().error('El mensaje del CEO es obligatoria'),
-    }),
-    defineField({
-      name: 'methodologySteps',
-      title: 'Pasos de la Metodología de Trabajo',
-      type: 'array',
-      of: [{type: 'object', fields: methodologyStepType.fields}],
-      validation: (rule) =>
-        rule.required().min(1).error('Debe haber al menos un paso en la metodología'),
     }),
   ],
 })

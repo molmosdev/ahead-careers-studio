@@ -2,7 +2,7 @@ import {defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'methodologyStep',
-  title: 'Paso de la Metodología',
+  title: 'Paso de la metodología de trabajo',
   type: 'object',
   fields: [
     defineField({
