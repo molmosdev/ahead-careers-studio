@@ -45,7 +45,7 @@ export default defineType({
     }),
     defineField({
       name: 'industry',
-      title: 'Industria',
+      title: 'Sector',
       type: 'string',
       validation: (rule) => rule.required(),
     }),
@@ -84,7 +84,6 @@ export default defineType({
       title: 'Contenido de la Oferta',
       type: 'array',
       of: [{type: 'block'}],
-      validation: (rule) => rule.required(),
     }),
   ],
 })
