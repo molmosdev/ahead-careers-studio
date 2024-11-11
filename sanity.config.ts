@@ -4,49 +4,83 @@ import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemaTypes'
 import {Logo} from './components/Logo'
 import type {StructureResolver} from 'sanity/structure'
+import {esESLocale} from '@sanity/locale-es-es'
+import {EnvelopeIcon, DesktopIcon, UserIcon, CaseIcon, BlockquoteIcon} from '@sanity/icons'
 
 // Define the structure resolver
 export const structure: StructureResolver = (S, context) =>
   S.list()
-    .title('Web')
+    .title('Panel de control')
     .items([
       S.listItem()
-        .id('businessDescription')
-        .schemaType('businessDescription')
-        .title('Descripción de la empresa')
+        .id('content')
+        .title('Contenido de la web')
+        .icon(DesktopIcon)
         .child(
-          S.editor()
-            .id('businessDescription')
-            .schemaType('businessDescription')
-            .documentId('businessDescription'),
+          S.list()
+            .title('Contenido de la web')
+            .items([
+              S.listItem()
+                .id('businessDescription')
+                .icon(BlockquoteIcon)
+                .schemaType('businessDescription')
+                .title('Descripción de la empresa')
+                .child(
+                  S.editor()
+                    .id('businessDescription')
+                    .schemaType('businessDescription')
+                    .documentId('businessDescription'),
+                ),
+              S.listItem()
+                .id('methodology')
+                .icon(BlockquoteIcon)
+                .schemaType('methodology')
+                .title('Metodología')
+                .child(
+                  S.editor().id('methodology').schemaType('methodology').documentId('methodology'),
+                ),
+              S.listItem()
+                .id('offers')
+                .icon(BlockquoteIcon)
+                .schemaType('offers')
+                .title('Ofertas')
+                .child(S.editor().id('offers').schemaType('offers').documentId('offers')),
+              S.listItem()
+                .id('experiences')
+                .icon(BlockquoteIcon)
+                .schemaType('experiences')
+                .title('Experiencias')
+                .child(
+                  S.editor().id('experiences').schemaType('experiences').documentId('experiences'),
+                ),
+              S.listItem()
+                .id('values')
+                .icon(BlockquoteIcon)
+                .schemaType('values')
+                .title('Valores')
+                .child(S.editor().id('values').schemaType('values').documentId('values')),
+            ]),
         ),
       S.listItem()
-        .id('methodology')
-        .schemaType('methodology')
-        .title('Metodología')
-        .child(S.editor().id('methodology').schemaType('methodology').documentId('methodology')),
-      S.listItem()
-        .id('offers')
-        .schemaType('offers')
-        .title('Ofertas')
-        .child(S.editor().id('offers').schemaType('offers').documentId('offers')),
-      S.listItem()
-        .id('experiences')
-        .schemaType('experiences')
-        .title('Experiencias')
-        .child(S.editor().id('experiences').schemaType('experiences').documentId('experiences')),
-      S.listItem()
-        .id('values')
-        .schemaType('values')
-        .title('Valores')
-        .child(S.editor().id('values').schemaType('values').documentId('values')),
-      ...S.documentTypeListItems().filter((listItem) => {
-        const id = listItem.getId()
-        return (
-          id &&
-          !['businessDescription', 'methodology', 'offers', 'experiences', 'values'].includes(id)
-        )
-      }),
+        .id('requests')
+        .title('Solicitudes')
+        .icon(EnvelopeIcon)
+        .child(
+          S.list()
+            .title('Solicitudes')
+            .items([
+              S.listItem()
+                .id('candidates')
+                .title('Candidatos')
+                .icon(UserIcon)
+                .child(S.documentTypeList('candidateRequest').title('Solicitudes de candidatos')),
+              S.listItem()
+                .id('business')
+                .title('Negocios')
+                .icon(CaseIcon)
+                .child(S.documentTypeList('businessRequest').title('Solicitudes de negocios')),
+            ]),
+        ),
     ])
 
 // Placeholder function to get the current user's role
@@ -63,6 +97,7 @@ export default defineConfig({
   dataset: 'production',
   plugins: [
     structureTool({structure}),
+    esESLocale(),
     ...(getCurrentUserRole() === 'administrator' ? [visionTool()] : []), // Conditionally include visionTool
   ],
   schema: {
