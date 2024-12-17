@@ -4,6 +4,7 @@ import candidateRequestType from './candidateRequest/candidateRequestType'
 import experiencesType from './experiences/experiencesType'
 import methodologyType from './methodology/methodologyType'
 import offersType from './offers/offersType'
+import offersCvType from './applications/applicationsType'
 import valuesType from './values/valuesType'
 
 export const schemaTypes = [
@@ -14,4 +15,5 @@ export const schemaTypes = [
   valuesType,
   candidateRequestType,
   businessRequestType,
+  offersCvType,
 ]

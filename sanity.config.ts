@@ -5,7 +5,14 @@ import {schemaTypes} from './schemaTypes'
 import {Logo} from './components/Logo'
 import type {StructureResolver} from 'sanity/structure'
 import {esESLocale} from '@sanity/locale-es-es'
-import {EnvelopeIcon, DesktopIcon, UserIcon, CaseIcon, BlockquoteIcon} from '@sanity/icons'
+import {
+  EnvelopeIcon,
+  DesktopIcon,
+  UserIcon,
+  CaseIcon,
+  BlockquoteIcon,
+  DocumentTextIcon,
+} from '@sanity/icons'
 
 // Define the structure resolver
 export const structure: StructureResolver = (S, context) =>
@@ -81,6 +88,11 @@ export const structure: StructureResolver = (S, context) =>
                 .child(S.documentTypeList('businessRequest').title('Solicitudes de negocios')),
             ]),
         ),
+      S.listItem()
+        .id('applications')
+        .title('Candidaturas')
+        .icon(DocumentTextIcon)
+        .child(S.documentTypeList('application').title('Candidaturas')),
     ])
 
 // Placeholder function to get the current user's role
