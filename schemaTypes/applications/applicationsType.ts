@@ -28,15 +28,22 @@ export default defineType({
           .max(99999)
           .error('The offer ID is required and must be an integer between 1 and 99999'),
     }),
+    defineField({
+      name: 'jobTitle',
+      title: 'Job Title',
+      type: 'string',
+      validation: (rule) => rule.required().error('The job title is required'),
+    }),
   ],
   preview: {
     select: {
       title: 'offerId',
+      jobTitle: 'jobTitle',
     },
     prepare(selection) {
-      const {title} = selection
+      const {title, jobTitle} = selection
       return {
-        title: `Candidatura para la oferta ${title}`,
+        title: `Candidatura para ${jobTitle} (${title})`,
       }
     },
   },
