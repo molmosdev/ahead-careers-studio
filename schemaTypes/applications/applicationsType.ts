@@ -32,6 +32,7 @@ export default defineType({
       name: 'jobTitle',
       title: 'Job Title',
       type: 'string',
+      readOnly: true,
       validation: (rule) => rule.required().error('The job title is required'),
     }),
   ],
