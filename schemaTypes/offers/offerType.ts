@@ -71,6 +71,14 @@ export default defineType({
       name: 'publicationDate',
       title: 'Fecha de Publicación',
       type: 'datetime',
+      readOnly: true,
+      initialValue: () => new Date().toISOString(),
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'editionDate',
+      title: 'Fecha de Edición',
+      type: 'datetime',
       validation: (rule) => rule.required(),
     }),
     defineField({
