@@ -35,16 +35,24 @@ export default defineType({
       readOnly: true,
       validation: (rule) => rule.required().error('The job title is required'),
     }),
+    defineField({
+      name: 'reviewed',
+      title: 'Revisada',
+      type: 'boolean',
+      initialValue: false,
+      validation: (rule) => rule.required().error('El estado de revisión es obligatorio'),
+    }),
   ],
   preview: {
     select: {
       title: 'offerId',
       jobTitle: 'jobTitle',
+      reviewed: 'reviewed',
     },
     prepare(selection) {
       const {title, jobTitle} = selection
       return {
-        title: `${jobTitle} (${title})`,
+        title: `${jobTitle} (${title}) ${selection.reviewed ? '- Revisada' : ''}`,
       }
     },
   },
