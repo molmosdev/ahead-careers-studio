@@ -43,7 +43,7 @@ export default defineType({
     prepare(selection) {
       const {title, jobTitle} = selection
       return {
-        title: `Candidatura para ${jobTitle} (${title})`,
+        title: `${jobTitle} (${title})`,
       }
     },
   },
