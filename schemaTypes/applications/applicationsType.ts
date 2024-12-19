@@ -36,11 +36,38 @@ export default defineType({
       validation: (rule) => rule.required().error('The job title is required'),
     }),
     defineField({
+      name: 'firstName',
+      title: 'Nombre',
+      type: 'string',
+      readOnly: true,
+      validation: (rule) => rule.required().error('El nombre es obligatorio'),
+    }),
+    defineField({
+      name: 'lastName',
+      title: 'Apellidos',
+      type: 'string',
+      readOnly: true,
+      validation: (rule) => rule.required().error('Los apellidos son obligatorios'),
+    }),
+    defineField({
+      name: 'phone',
+      title: 'Teléfono',
+      type: 'number',
+      readOnly: true,
+      validation: (rule) => rule.required().error('El teléfono es obligatorio'),
+    }),
+    defineField({
+      name: 'email',
+      title: 'Correo Electrónico',
+      type: 'email',
+      readOnly: true,
+      validation: (rule) => rule.required().error('El correo electrónico es obligatorio'),
+    }),
+    defineField({
       name: 'reviewed',
       title: 'Revisada',
       type: 'boolean',
       initialValue: false,
-      validation: (rule) => rule.required().error('El estado de revisión es obligatorio'),
     }),
   ],
   preview: {
@@ -52,7 +79,7 @@ export default defineType({
     prepare(selection) {
       const {title, jobTitle} = selection
       return {
-        title: `${jobTitle} (${title}) ${selection.reviewed ? '- Revisada' : ''}`,
+        title: `${jobTitle} (${title}) ${selection.reviewed ? '- R' : ''}`,
       }
     },
   },
