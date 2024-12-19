@@ -79,7 +79,7 @@ export default defineType({
     prepare(selection) {
       const {title, jobTitle} = selection
       return {
-        title: `${jobTitle} (${title}) ${selection.reviewed ? '- R' : ''}`,
+        title: `${jobTitle} (${title}) ${selection.reviewed ? '✅' : ''}`,
       }
     },
   },
