@@ -10,28 +10,24 @@ export default defineType({
       title: 'Nombre',
       type: 'string',
       readOnly: true,
-      validation: (rule) => rule.required().error('El nombre es obligatorio'),
     }),
     defineField({
       name: 'lastName',
       title: 'Apellidos',
       type: 'string',
       readOnly: true,
-      validation: (rule) => rule.required().error('Los apellidos son obligatorios'),
     }),
     defineField({
       name: 'phone',
       title: 'Teléfono',
       type: 'number',
       readOnly: true,
-      validation: (rule) => rule.required().error('El teléfono es obligatorio'),
     }),
     defineField({
       name: 'email',
       title: 'Correo Electrónico',
       type: 'email',
       readOnly: true,
-      validation: (rule) => rule.required().error('El correo electrónico es obligatorio'),
     }),
     defineField({
       name: 'extraInfo',
@@ -47,7 +43,6 @@ export default defineType({
         accept: '.pdf',
       },
       readOnly: true,
-      validation: (rule) => rule.required().error('El CV es obligatorio'),
     }),
     defineField({
       name: 'reviewed',
