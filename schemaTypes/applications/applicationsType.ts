@@ -6,16 +6,6 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'cv',
-      title: 'CV',
-      type: 'file',
-      options: {
-        accept: '.pdf',
-      },
-      readOnly: true,
-      validation: (rule) => rule.required().error('The CV is required'),
-    }),
-    defineField({
       name: 'offerId',
       title: 'Offer ID',
       type: 'number',
@@ -64,6 +54,16 @@ export default defineType({
       validation: (rule) => rule.required().error('El correo electrónico es obligatorio'),
     }),
     defineField({
+      name: 'cv',
+      title: 'CV',
+      type: 'file',
+      options: {
+        accept: '.pdf',
+      },
+      readOnly: true,
+      validation: (rule) => rule.required().error('The CV is required'),
+    }),
+    defineField({
       name: 'reviewed',
       title: 'Revisada',
       type: 'boolean',
@@ -77,9 +77,9 @@ export default defineType({
       reviewed: 'reviewed',
     },
     prepare(selection) {
-      const {title, jobTitle} = selection
+      const {title, jobTitle, reviewed} = selection
       return {
-        title: `${jobTitle} (${title}) ${selection.reviewed ? '✅' : ''}`,
+        title: `${jobTitle} (${title}) ${reviewed ? '✅' : ''}`,
       }
     },
   },
