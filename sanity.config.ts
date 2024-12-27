@@ -66,6 +66,17 @@ export const structure: StructureResolver = (S, context) =>
                 .schemaType('values')
                 .title('Valores')
                 .child(S.editor().id('values').schemaType('values').documentId('values')),
+              S.listItem()
+                .id('privacyPolicy')
+                .icon(BlockquoteIcon)
+                .schemaType('privacyPolicy')
+                .title('Política de privacidad')
+                .child(
+                  S.editor()
+                    .id('privacyPolicy')
+                    .schemaType('privacyPolicy')
+                    .documentId('privacyPolicy'),
+                ),
             ]),
         ),
       S.listItem()
