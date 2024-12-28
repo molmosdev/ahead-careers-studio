@@ -77,6 +77,14 @@ export const structure: StructureResolver = (S, context) =>
                     .schemaType('privacyPolicy')
                     .documentId('privacyPolicy'),
                 ),
+              S.listItem()
+                .id('legalNotice')
+                .icon(BlockquoteIcon)
+                .schemaType('legalNotice')
+                .title('Aviso legal')
+                .child(
+                  S.editor().id('legalNotice').schemaType('legalNotice').documentId('legalNotice'),
+                ),
             ]),
         ),
       S.listItem()

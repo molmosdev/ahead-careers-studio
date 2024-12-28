@@ -7,6 +7,7 @@ import offersType from './offers/offersType'
 import offersCvType from './applications/applicationsType'
 import valuesType from './values/valuesType'
 import privacyPolicyType from './privacyPolicy/privacyPolicyType'
+import legalNoticeType from './legalNotice/legalNoticeType'
 
 export const schemaTypes = [
   businessDescriptionType,
@@ -18,4 +19,5 @@ export const schemaTypes = [
   businessRequestType,
   offersCvType,
   privacyPolicyType,
+  legalNoticeType,
 ]
