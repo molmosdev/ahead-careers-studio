@@ -85,6 +85,12 @@ export const structure: StructureResolver = (S, context) =>
                 .child(
                   S.editor().id('legalNotice').schemaType('legalNotice').documentId('legalNotice'),
                 ),
+              S.listItem()
+                .id('cookies')
+                .icon(BlockquoteIcon)
+                .schemaType('cookies')
+                .title('Cookies')
+                .child(S.editor().id('cookies').schemaType('cookies').documentId('cookies')),
             ]),
         ),
       S.listItem()
