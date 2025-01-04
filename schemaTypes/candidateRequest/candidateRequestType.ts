@@ -30,23 +30,17 @@ export default defineType({
       readOnly: true,
     }),
     defineField({
-      name: 'reason',
-      title: 'Motivo',
-      type: 'string',
+      name: 'callInterview',
+      title: 'Entrevista telefónica',
+      type: 'boolean',
       readOnly: true,
-      options: {
-        list: [
-          {title: 'Información por correo electrónico', value: 'InformationByEmail'},
-          {title: 'Entrevista telefónica', value: 'CallInterview'},
-        ],
-      },
     }),
     defineField({
       name: 'availability',
       title: 'Disponibilidad horaria',
       type: 'string',
       readOnly: true,
-      hidden: ({parent}) => parent?.reason !== 'Call',
+      hidden: ({parent}) => parent?.callInterview !== true,
     }),
     defineField({
       name: 'cv',
