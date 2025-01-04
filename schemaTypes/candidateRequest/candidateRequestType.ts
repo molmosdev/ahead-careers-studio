@@ -36,8 +36,8 @@ export default defineType({
       readOnly: true,
       options: {
         list: [
-          {title: 'Información por correo electrónico', value: 'Email'},
-          {title: 'Entrevista telefónica', value: 'Call'},
+          {title: 'Información por correo electrónico', value: 'InformationByEmail'},
+          {title: 'Entrevista telefónica', value: 'CallInterview'},
         ],
       },
     }),
