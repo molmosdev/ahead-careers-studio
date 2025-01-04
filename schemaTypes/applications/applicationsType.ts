@@ -42,6 +42,12 @@ export default defineType({
       readOnly: true,
     }),
     defineField({
+      name: 'availability',
+      title: 'Disponibilidad horaria',
+      type: 'string',
+      readOnly: true,
+    }),
+    defineField({
       name: 'cv',
       title: 'CV',
       type: 'file',
