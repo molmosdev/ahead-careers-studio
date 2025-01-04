@@ -54,12 +54,6 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'extraInfo',
-      title: 'Información Extra',
-      type: 'text',
-      readOnly: true,
-    }),
-    defineField({
       name: 'jobDescription',
       title: 'Descripción del puesto',
       type: 'file',
@@ -67,6 +61,7 @@ export default defineType({
         accept: '.pdf',
       },
       readOnly: true,
+      hidden: ({parent}) => parent?.reason !== 'Selection',
     }),
     defineField({
       name: 'reviewed',
