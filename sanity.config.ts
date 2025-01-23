@@ -47,12 +47,6 @@ export const structure: StructureResolver = (S, context) =>
                   S.editor().id('methodology').schemaType('methodology').documentId('methodology'),
                 ),
               S.listItem()
-                .id('offers')
-                .icon(BlockquoteIcon)
-                .schemaType('offers')
-                .title('Ofertas')
-                .child(S.editor().id('offers').schemaType('offers').documentId('offers')),
-              S.listItem()
                 .id('experiences')
                 .icon(BlockquoteIcon)
                 .schemaType('experiences')
@@ -118,6 +112,12 @@ export const structure: StructureResolver = (S, context) =>
         .title('Candidaturas')
         .icon(DocumentTextIcon)
         .child(S.documentTypeList('application').title('Candidaturas')),
+      S.listItem()
+        .id('offers')
+        .icon(BlockquoteIcon)
+        .schemaType('offers')
+        .title('Ofertas')
+        .child(S.editor().id('offers').schemaType('offers').documentId('offers')),
     ])
 
 // Placeholder function to get the current user's role
