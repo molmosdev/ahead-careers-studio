@@ -82,32 +82,17 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'consultantSelection',
-      title: 'Seleccionar Consultor',
-      type: 'string',
-      options: {
-        list: [
-          {title: 'Eric Olmos (eolmos@aheadcareers.com)', value: 'ericOlmos'},
-          {title: 'Otro', value: 'other'},
-        ],
-      },
-      validation: (rule) => rule.required().error('La selección del consultor es obligatoria'),
-    }),
-    defineField({
       name: 'consultantName',
       title: 'Nombre del Consultor',
       type: 'string',
-      readOnly: ({parent}) => parent?.consultantSelection === 'ericOlmos',
-      initialValue: ({parent}) => (parent?.consultantSelection === 'ericOlmos' ? 'Eric Olmos' : ''),
+      initialValue: 'Eric Olmos',
       validation: (rule) => rule.required().error('El nombre del consultor es obligatorio'),
     }),
     defineField({
       name: 'consultantEmail',
       title: 'Correo Electrónico del Consultor',
       type: 'email',
-      readOnly: ({parent}) => parent?.consultantSelection === 'ericOlmos',
-      initialValue: ({parent}) =>
-        parent?.consultantSelection === 'ericOlmos' ? 'eolmos@aheadcareers.com' : '',
+      initialValue: 'eolmos@aheadcareers.com',
       validation: (rule) =>
         rule.required().error('El correo electrónico del consultor es obligatorio'),
     }),
