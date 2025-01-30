@@ -103,11 +103,11 @@ export default defineType({
       of: [{type: 'block'}],
     }),
     defineField({
-      name: 'isVisible',
-      title: 'Visible',
+      name: 'isActive',
+      title: 'Activa',
       type: 'boolean',
       initialValue: true,
-      validation: (rule) => rule.required().error('La visibilidad es obligatoria'),
+      validation: (rule) => rule.required().error('La oferta debe estar activa o inactiva'),
     }),
   ],
 })
