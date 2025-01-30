@@ -9,6 +9,7 @@ import valuesType from './values/valuesType'
 import privacyPolicyType from './privacyPolicy/privacyPolicyType'
 import legalNoticeType from './legalNotice/legalNoticeType'
 import cookiesType from './cookies/cookiesType'
+import offerType from './offers/offerType'
 
 export const schemaTypes = [
   businessDescriptionType,
@@ -18,6 +19,7 @@ export const schemaTypes = [
   valuesType,
   candidateRequestType,
   businessRequestType,
+  offerType,
   offersCvType,
   privacyPolicyType,
   legalNoticeType,

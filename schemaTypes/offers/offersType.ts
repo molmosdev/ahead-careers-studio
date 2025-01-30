@@ -1,5 +1,4 @@
 import {defineField, defineType} from 'sanity'
-import offerType from './offerType'
 
 export default defineType({
   name: 'offers',
@@ -11,12 +10,6 @@ export default defineType({
       title: 'Título',
       type: 'string',
       validation: (rule) => rule.required(),
-    }),
-    defineField({
-      name: 'offers',
-      title: 'Lista de ofertas',
-      type: 'array',
-      of: [{type: 'object', fields: offerType.fields}],
     }),
   ],
 })

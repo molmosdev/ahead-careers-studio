@@ -110,4 +110,16 @@ export default defineType({
       validation: (rule) => rule.required().error('La oferta debe estar activa o inactiva'),
     }),
   ],
+  preview: {
+    select: {
+      jobTitle: 'jobTitle',
+      isActive: 'isActive',
+    },
+    prepare(selection) {
+      const {jobTitle, isActive} = selection
+      return {
+        title: `${jobTitle} ${isActive ? '(Activa)' : ''}`,
+      }
+    },
+  },
 })

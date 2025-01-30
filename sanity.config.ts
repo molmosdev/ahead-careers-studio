@@ -85,6 +85,12 @@ export const structure: StructureResolver = (S, context) =>
                 .schemaType('cookies')
                 .title('Cookies')
                 .child(S.editor().id('cookies').schemaType('cookies').documentId('cookies')),
+              S.listItem()
+                .id('offers')
+                .icon(BlockquoteIcon)
+                .schemaType('offers')
+                .title('Ofertas')
+                .child(S.editor().id('offers').schemaType('offers').documentId('offers')),
             ]),
         ),
       S.listItem()
@@ -113,11 +119,10 @@ export const structure: StructureResolver = (S, context) =>
         .icon(DocumentTextIcon)
         .child(S.documentTypeList('application').title('Candidaturas')),
       S.listItem()
-        .id('offers')
+        .id('offersList')
         .icon(BlockquoteIcon)
-        .schemaType('offers')
         .title('Ofertas')
-        .child(S.editor().id('offers').schemaType('offers').documentId('offers')),
+        .child(S.documentTypeList('offer').title('Ofertas')),
     ])
 
 // Placeholder function to get the current user's role
