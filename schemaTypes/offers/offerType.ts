@@ -6,6 +6,13 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'isActive',
+      title: 'Activa',
+      type: 'boolean',
+      initialValue: true,
+      validation: (rule) => rule.required().error('La oferta debe estar activa o inactiva'),
+    }),
+    defineField({
       name: 'offerId',
       title: 'ID de la Oferta',
       type: 'number',
@@ -101,13 +108,6 @@ export default defineType({
       title: 'Contenido de la Oferta',
       type: 'array',
       of: [{type: 'block'}],
-    }),
-    defineField({
-      name: 'isActive',
-      title: 'Activa',
-      type: 'boolean',
-      initialValue: true,
-      validation: (rule) => rule.required().error('La oferta debe estar activa o inactiva'),
     }),
   ],
   preview: {
