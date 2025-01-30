@@ -102,5 +102,12 @@ export default defineType({
       type: 'array',
       of: [{type: 'block'}],
     }),
+    defineField({
+      name: 'isVisible',
+      title: 'Visible',
+      type: 'boolean',
+      initialValue: true,
+      validation: (rule) => rule.required().error('La visibilidad es obligatoria'),
+    }),
   ],
 })
