@@ -58,7 +58,7 @@ export default defineType({
       name: 'publicationDate',
       title: 'Fecha de Publicación',
       type: 'datetime',
-          readOnly: true,
+      readOnly: true,
       initialValue: () => new Date().toISOString(),
       validation: (rule) => rule.required(),
     }),
