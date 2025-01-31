@@ -89,16 +89,23 @@ export default defineType({
       type: 'array',
       of: [{type: 'block'}],
     }),
+    defineField({
+      name: 'orderRank',
+      title: 'Order Rank',
+      type: 'string',
+      hidden: true,
+    }),
   ],
   preview: {
     select: {
       jobTitle: 'jobTitle',
-      isActive: 'isActive',
+      location: 'location',
     },
     prepare(selection) {
-      const {jobTitle, isActive} = selection
+      const {jobTitle, location} = selection
       return {
-        title: `${jobTitle} ${isActive ? '(Activa)' : ''}`,
+        title: jobTitle,
+        description: location,
       }
     },
   },

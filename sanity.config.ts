@@ -13,6 +13,7 @@ import {
   BlockquoteIcon,
   DocumentTextIcon,
 } from '@sanity/icons'
+import {orderableDocumentListDeskItem} from '@sanity/orderable-document-list'
 
 // Define the structure resolver
 export const structure: StructureResolver = (S, context) =>
@@ -119,10 +120,40 @@ export const structure: StructureResolver = (S, context) =>
         .icon(DocumentTextIcon)
         .child(S.documentTypeList('application').title('Candidaturas')),
       S.listItem()
+        .id('offers-lists')
+        .title('Ofertas')
+        .icon(BlockquoteIcon)
+        .child(
+          S.list()
+            .title('Ofertas')
+            .items([
+              orderableDocumentListDeskItem({
+                type: 'offer',
+                id: 'activeOffers',
+                icon: BlockquoteIcon,
+                title: 'Abiertas',
+                S,
+                context,
+                createIntent: true,
+                filter: '_type == "offer" && isActive == true',
+              }),
+              orderableDocumentListDeskItem({
+                type: 'offer',
+                id: 'deactivatedOffers',
+                icon: BlockquoteIcon,
+                title: 'Cerradas',
+                S,
+                context,
+                createIntent: true,
+                filter: '_type == "offer" && isActive == false',
+              }),
+            ]),
+        ),
+      /*       S.listItem()
         .id('offersList')
         .icon(BlockquoteIcon)
         .title('Ofertas')
-        .child(S.documentTypeList('offer').title('Ofertas')),
+        .child(S.documentTypeList('offer').title('Ofertas')), */
     ])
 
 // Placeholder function to get the current user's role
